@@ -1,0 +1,16 @@
+---
+domain: <app domain>
+applications:
+- name: pcf-get-events-js
+  host: pcf-events
+  memory: 128M
+  disk_quota: 64M
+  buildpack: https://github.com/cloudfoundry/nodejs-buildpack
+  instances: 2
+  path: ./server/
+  env:
+    API_PROTOCOL: https
+    API_HOST: api.<systemDomain>
+    API_USERNAME: admin
+    API_PASSWORD: <adminPassword>
+    SKIP_SSL_VALIDATION: <true|false>
